@@ -18,7 +18,7 @@ function App() {
     activeTree,
     createTree,
     selectTree,
-    updateAmount,
+    addAmount,
     updateGoal,
     updateTreeName,
     deleteTree,
@@ -70,7 +70,7 @@ function App() {
           <div className="tab-content">
             <AmountInput
               tree={activeTree}
-              onUpdate={(amount, memo) => updateAmount(activeTree.id, amount, memo)}
+              onAdd={(amount, memo) => addAmount(activeTree.id, amount, memo)}
             />
           </div>
         )}

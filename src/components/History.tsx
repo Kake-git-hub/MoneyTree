@@ -37,10 +37,9 @@ export function History({ tree }: HistoryProps) {
     <div className="history-container">
       <h3>📊 入力履歴</h3>
       <div className="history-list">
-        {sortedHistory.map((entry, index) => {
-          const prevEntry = sortedHistory[index + 1];
-          const diff = prevEntry ? entry.amount - prevEntry.amount : entry.amount;
-          const isPositive = diff >= 0;
+        {sortedHistory.map((entry) => {
+          const change = entry.change ?? 0;
+          const isPositive = change >= 0;
 
           return (
             <div key={entry.id} className="history-item">
@@ -49,9 +48,9 @@ export function History({ tree }: HistoryProps) {
                 <span className="history-amount">
                   ¥{entry.amount.toLocaleString()}
                 </span>
-                {prevEntry && (
+                {change !== 0 && (
                   <span className={`history-diff ${isPositive ? 'positive' : 'negative'}`}>
-                    {isPositive ? '+' : ''}¥{diff.toLocaleString()}
+                    {isPositive ? '+' : ''}¥{change.toLocaleString()}
                   </span>
                 )}
               </div>

@@ -5,6 +5,7 @@ export interface HistoryEntry {
   id: string;
   date: string;
   amount: number;
+  change?: number;  // 増減額
   memo?: string;
 }
 
@@ -73,27 +74,35 @@ export function useMoneyTree() {
     setState(prev => ({ ...prev, activeTreeId: id }));
   }, []);
 
-  // 金額を更新
-  const updateAmount = useCallback((treeId: string, amount: number, memo?: string) => {
-    const entry: HistoryEntry = {
-      id: generateId(),
-      date: new Date().toISOString(),
-      amount,
-      memo,
-    };
-    setState(prev => ({
-      ...prev,
-      trees: prev.trees.map(tree =>
-        tree.id === treeId
-          ? {
-              ...tree,
-              currentAmount: amount,
-              updatedAt: new Date().toISOString(),
-              history: [...tree.history, entry],
-            }
-          : tree
-      ),
-    }));
+  // 金額を加算/減算（投稿形式）
+  const addAmount = useCallback((treeId: string, change: number, memo?: string) => {
+    setState(prev => {
+      const tree = prev.trees.find(t => t.id === treeId);
+      if (!tree) return prev;
+      
+      const newAmount = Math.max(0, tree.currentAmount + change);
+      const entry: HistoryEntry = {
+        id: generateId(),
+        date: new Date().toISOString(),
+        amount: newAmount,
+        change: change,
+        memo,
+      };
+      
+      return {
+        ...prev,
+        trees: prev.trees.map(t =>
+          t.id === treeId
+            ? {
+                ...t,
+                currentAmount: newAmount,
+                updatedAt: new Date().toISOString(),
+                history: [...t.history, entry],
+              }
+            : t
+        ),
+      };
+    });
   }, []);
 
   // 目標金額を更新
@@ -163,7 +172,7 @@ export function useMoneyTree() {
     activeTree,
     createTree,
     selectTree,
-    updateAmount,
+    addAmount,
     updateGoal,
     updateTreeName,
     deleteTree,

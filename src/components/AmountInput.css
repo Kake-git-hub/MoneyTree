@@ -8,6 +8,60 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* 現在の資産表示 */
+.current-amount-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.current-amount-display .label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.current-amount-display .value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2d5a27;
+}
+
+/* プラス/マイナス切り替え */
+.sign-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sign-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sign-btn.active.plus {
+  border-color: #4CAF50;
+  background: #e8f5e9;
+  color: #2d5a27;
+}
+
+.sign-btn.active.minus {
+  border-color: #f44336;
+  background: #ffebee;
+  color: #c62828;
+}
+
 .input-group {
   margin-bottom: 16px;
 }
@@ -33,6 +87,22 @@
 .amount-wrapper:focus-within {
   border-color: #4CAF50;
   background: white;
+}
+
+.amount-wrapper.positive {
+  border-color: #4CAF50;
+}
+
+.amount-wrapper.negative {
+  border-color: #f44336;
+}
+
+.amount-wrapper.positive .currency {
+  color: #2d5a27;
+}
+
+.amount-wrapper.negative .currency {
+  color: #c62828;
 }
 
 .currency {
@@ -81,9 +151,17 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.update-button.negative {
+  background: linear-gradient(135deg, #f44336 0%, #ff5722 100%);
+}
+
 .update-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.update-button.negative:hover {
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
 }
 
 .update-button:active {
@@ -135,7 +213,21 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: #2d5a27;
-  margin: 16px 0;
+  margin: 16px 0 8px;
+}
+
+.confirm-amount.positive {
+  color: #2d5a27;
+}
+
+.confirm-amount.negative {
+  color: #c62828;
+}
+
+.confirm-new-total {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 12px;
 }
 
 .confirm-memo {
@@ -169,6 +261,10 @@
 .confirm-btn {
   background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
   color: white;
+}
+
+.confirm-btn.negative {
+  background: linear-gradient(135deg, #f44336 0%, #ff5722 100%);
 }
 
 .cancel-btn:hover,
