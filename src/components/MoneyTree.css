@@ -1,0 +1,100 @@
+.money-tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 木の画像表示エリア */
+.tree-image-area {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #87CEEB 0%, #98D8C8 70%, #8B4513 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tree-image {
+  max-width: 90%;
+  max-height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.tree-image:hover {
+  transform: scale(1.05);
+}
+
+/* 進捗セクション */
+.progress-section {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stage-name {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d5a27;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 50%, #CDDC39 100%);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* 段階インジケーター */
+.stage-indicators {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.stage-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+.stage-dot.active {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  color: white;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.4);
+}

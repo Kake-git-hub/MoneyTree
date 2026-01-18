@@ -1,0 +1,166 @@
+.welcome-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.welcome-content {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.welcome-icon {
+  font-size: 80px;
+  margin-bottom: 8px;
+  animation: grow 2s ease-in-out infinite;
+}
+
+@keyframes grow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.welcome-content h1 {
+  font-size: 2rem;
+  color: #2d5a27;
+  margin: 0 0 8px 0;
+}
+
+.welcome-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 24px 0;
+}
+
+.welcome-description {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-description p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.welcome-form {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.form-field input:focus {
+  border-color: #4CAF50;
+}
+
+.goal-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.goal-wrapper:focus-within {
+  border-color: #4CAF50;
+  background: white;
+}
+
+.goal-wrapper .yen {
+  padding-left: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d5a27;
+}
+
+.goal-wrapper input {
+  border: none;
+  background: transparent;
+  padding-left: 8px;
+}
+
+.goal-wrapper input:focus {
+  border: none;
+}
+
+.start-button {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+/* 成長プレビュー */
+.growth-preview {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+}
+
+.growth-preview p {
+  margin: 0 0 12px 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.stages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 8px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.stages span {
+  white-space: nowrap;
+}

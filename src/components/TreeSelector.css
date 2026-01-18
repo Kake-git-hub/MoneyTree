@@ -1,0 +1,236 @@
+.tree-selector {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 16px;
+}
+
+.tree-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tree-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tree-tabs::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.tree-tab {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tree-tab:hover {
+  border-color: #4CAF50;
+}
+
+.tree-tab.active {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.tree-tab.add-tab {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.tree-tab.add-tab:hover {
+  background: #e8f5e9;
+}
+
+.settings-button {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  padding: 8px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.settings-button:hover {
+  opacity: 1;
+}
+
+/* ダイアログ共通 */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.dialog {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 340px;
+  width: 100%;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dialog h3 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: #333;
+}
+
+.dialog-field {
+  margin-bottom: 16px;
+}
+
+.dialog-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.dialog-field input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.dialog-field input:focus {
+  border-color: #4CAF50;
+}
+
+.goal-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding-left: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.goal-input-wrapper:focus-within {
+  border-color: #4CAF50;
+  background: white;
+}
+
+.goal-input-wrapper span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2d5a27;
+}
+
+.goal-input-wrapper input {
+  border: none;
+  background: transparent;
+  padding-left: 8px;
+}
+
+.goal-input-wrapper input:focus {
+  border: none;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.dialog-buttons button {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background: #e0e0e0;
+  color: #666;
+}
+
+.dialog-buttons button.primary {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  color: white;
+}
+
+.dialog-buttons button:hover {
+  transform: scale(1.02);
+}
+
+/* 危険ゾーン */
+.danger-zone {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 12px;
+}
+
+.danger-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #fff3e0;
+  color: #ff9800;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.danger-btn:hover {
+  background: #ffe0b2;
+}
+
+.danger-btn.delete {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.danger-btn.delete:hover {
+  background: #ffcdd2;
+}

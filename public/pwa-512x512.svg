@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 背景 -->
+  <rect width="512" height="512" fill="#e8f5e9" rx="80"/>
+  
+  <!-- 地面 -->
+  <ellipse cx="256" cy="440" rx="180" ry="40" fill="#8B4513"/>
+  
+  <!-- 幹 -->
+  <rect x="220" y="260" width="72" height="180" fill="#5D4037" rx="10"/>
+  
+  <!-- 葉っぱ/木の冠 -->
+  <ellipse cx="256" cy="180" rx="160" ry="145" fill="#4CAF50"/>
+  <ellipse cx="150" cy="210" rx="80" ry="80" fill="#66BB6A"/>
+  <ellipse cx="362" cy="210" rx="80" ry="80" fill="#66BB6A"/>
+  <ellipse cx="256" cy="120" rx="110" ry="95" fill="#81C784"/>
+  
+  <!-- お金の実 -->
+  <circle cx="150" cy="140" r="40" fill="#FFD700" stroke="#FFA000" stroke-width="4"/>
+  <text x="150" y="155" text-anchor="middle" font-size="40" font-weight="bold" fill="#5D4037">¥</text>
+  
+  <circle cx="362" cy="150" r="40" fill="#FFD700" stroke="#FFA000" stroke-width="4"/>
+  <text x="362" y="165" text-anchor="middle" font-size="40" font-weight="bold" fill="#5D4037">¥</text>
+  
+  <circle cx="256" cy="80" r="40" fill="#FFD700" stroke="#FFA000" stroke-width="4"/>
+  <text x="256" y="95" text-anchor="middle" font-size="40" font-weight="bold" fill="#5D4037">¥</text>
+  
+  <circle cx="190" cy="220" r="35" fill="#FFD700" stroke="#FFA000" stroke-width="4"/>
+  <text x="190" y="233" text-anchor="middle" font-size="35" font-weight="bold" fill="#5D4037">¥</text>
+  
+  <circle cx="322" cy="230" r="35" fill="#FFD700" stroke="#FFA000" stroke-width="4"/>
+  <text x="322" y="243" text-anchor="middle" font-size="35" font-weight="bold" fill="#5D4037">¥</text>
+  
+  <circle cx="256" cy="180" r="35" fill="#FFD700" stroke="#FFA000" stroke-width="4"/>
+  <text x="256" y="193" text-anchor="middle" font-size="35" font-weight="bold" fill="#5D4037">¥</text>
+</svg>

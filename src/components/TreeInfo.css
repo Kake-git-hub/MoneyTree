@@ -1,0 +1,54 @@
+.tree-info {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.info-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.info-card {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-card.full-width {
+  flex: 1;
+}
+
+.info-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.info-value.current {
+  color: #4CAF50;
+}
+
+.info-value.goal {
+  color: #FF9800;
+}
+
+.info-value.remaining {
+  color: #2196F3;
+}
+
+.info-sub {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
