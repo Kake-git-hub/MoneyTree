@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import type { TreeData } from '../hooks/useMoneyTree';
 import './MoneyTree.css';
 
@@ -14,13 +14,13 @@ interface StageInfo {
 }
 
 const STAGES: StageInfo[] = [
-  { stage: 'seed', name: '種', minPercent: 0, maxPercent: 5, image: '/trees/種.png' },
-  { stage: 'sprout', name: '芽', minPercent: 5, maxPercent: 15, image: '/trees/芽.png' },
-  { stage: 'seedling', name: '苗木', minPercent: 15, maxPercent: 30, image: '/trees/苗木.png' },
-  { stage: 'small', name: '小さな木', minPercent: 30, maxPercent: 50, image: '/trees/小さな木.png' },
-  { stage: 'medium', name: '大きな木', minPercent: 50, maxPercent: 75, image: '/trees/大きな木.png' },
-  { stage: 'flowering', name: '花が咲く', minPercent: 75, maxPercent: 95, image: '/trees/花が咲く.png' },
-  { stage: 'fruiting', name: '実がなる', minPercent: 95, maxPercent: 100, image: '/trees/身がなる.png' },
+  { stage: 'seed', name: '種', minPercent: 0, maxPercent: 5, image: '/trees/stage1-seed.png' },
+  { stage: 'sprout', name: '芽', minPercent: 5, maxPercent: 15, image: '/trees/stage2-sprout.png' },
+  { stage: 'seedling', name: '苗木', minPercent: 15, maxPercent: 30, image: '/trees/stage3-seedling.png' },
+  { stage: 'small', name: '小さな木', minPercent: 30, maxPercent: 50, image: '/trees/stage4-small.png' },
+  { stage: 'medium', name: '大きな木', minPercent: 50, maxPercent: 75, image: '/trees/stage5-medium.png' },
+  { stage: 'flowering', name: '花が咲く', minPercent: 75, maxPercent: 95, image: '/trees/stage6-flower.png' },
+  { stage: 'fruiting', name: '実がなる', minPercent: 95, maxPercent: 100, image: '/trees/stage7-fruit.png' },
 ];
 
 function getStageFromPercent(percent: number): StageInfo {
@@ -43,15 +43,39 @@ export function MoneyTree({ tree }: MoneyTreeProps) {
     : 0;
   
   const stageInfo = useMemo(() => getStageFromPercent(percent), [percent]);
+  
+  // 成長アニメーション用の状態
+  const [isGrowing, setIsGrowing] = useState(false);
+  const [prevStage, setPrevStage] = useState(stageInfo.stage);
+  
+  // 段階が変わったらアニメーションを発火
+  useEffect(() => {
+    if (stageInfo.stage !== prevStage) {
+      setIsGrowing(true);
+      setPrevStage(stageInfo.stage);
+      const timer = setTimeout(() => setIsGrowing(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [stageInfo.stage, prevStage]);
 
   return (
     <div className="money-tree-container">
       {/* 木の画像表示エリア */}
       <div className="tree-image-area">
+        {/* キラキラエフェクト */}
+        {isGrowing && (
+          <div className="sparkle-container">
+            <span className="sparkle">✨</span>
+            <span className="sparkle">✨</span>
+            <span className="sparkle">✨</span>
+            <span className="sparkle">✨</span>
+            <span className="sparkle">✨</span>
+          </div>
+        )}
         <img 
           src={stageInfo.image} 
           alt={stageInfo.name}
-          className="tree-image"
+          className={`tree-image ${isGrowing ? 'growing' : ''}`}
         />
       </div>
 
